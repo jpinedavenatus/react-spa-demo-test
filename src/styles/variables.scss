@@ -1,13 +1,33 @@
-$color_1: #444;
-$color_2: #fff;
-$color_3: #222;
-$color_4: #000;
-$color_5: #333;
-$color_6: #c81e28;
-$color_7: #ffffff;
-$font-family_1: sans-serif;
-$font-family_2: outfit, sans-serif;
-$background-color_1: #fff;
-$background-color_2: #d1d1d1;
-$background-color_3: #f8f8f8;
-$background-color_4: #c81e29;
+// Brand
+$brand: #c81e28;
+$brand-dark: #a3161f;
+$brand-tint: #fdecee;
+
+// Neutrals
+$ink: #16181d;
+$ink-soft: #4a4f5a;
+$ink-muted: #7b8190;
+$line: #e4e6eb;
+$surface: #ffffff;
+$surface-alt: #f5f6f8;
+$skeleton: #e9ebef;
+$footer-bg: #14161b;
+
+// Status
+$success: #1f8a4c;
+$success-tint: #e6f4ec;
+$pending: #b26a00;
+$pending-tint: #fff4e0;
+
+// Type
+$font-sans: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+// Layout
+$shell-max: 1200px;
+$sidebar-width: 300px;
+$radius: 10px;
+$radius-sm: 6px;
+$shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+
+$bp-md: 768px;
+$bp-lg: 1024px;

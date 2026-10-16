@@ -1,5 +1,5 @@
-import React, { FC, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { FC } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 interface ILinkButton {
   link: string;
@@ -7,35 +7,33 @@ interface ILinkButton {
 }
 
 const TButtons: ILinkButton[] = [
-  { link: "Page01", label: "Page 1" },
-  { link: "Page02", label: "Page 2" },
-  { link: "Page03", label: "Page 3" },
+  { link: "/Page01", label: "Rewarded video" },
+  { link: "/Page02", label: "Billboard and sticky" },
+  { link: "/Page03", label: "Video player" },
 ];
 
-const btnContent = (prop: ILinkButton): JSX.Element => {
-  return (
-    <Link key={prop.label} to={prop.link} className="button">
-      {prop.label}
-    </Link>
-  );
-};
-
 const Navigation: FC<{}> = () => {
-  const btnGroup: JSX.Element[] = [];
-  for (const element of TButtons) {
-    const btn: JSX.Element = btnContent(element);
-    btnGroup.push(btn);
-  }
+  const { pathname } = useLocation();
 
   return (
-    <Fragment>
-      <h2>Prosper SPA Demo</h2>
-      <div className="tabs-component">
-        <div role="tablist" className="container">
-          {btnGroup}
-        </div>
+    <nav className="site-nav" aria-label="Demo pages">
+      <div className="shell site-nav__list">
+        {TButtons.map((item, i) => (
+          <NavLink
+            key={item.link}
+            to={item.link}
+            className={({ isActive }) =>
+              // "/" renders Page01, so treat it as the first tab
+              isActive || (pathname === "/" && i === 0)
+                ? "site-nav__link is-active"
+                : "site-nav__link"
+            }
+          >
+            {item.label}
+          </NavLink>
+        ))}
       </div>
-    </Fragment>
+    </nav>
   );
 };
 
